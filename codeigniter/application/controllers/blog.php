@@ -1,7 +1,6 @@
 <?php
 class Blog extends CI_Controller{
 	public function index(){
-		$this->load->helper('form');
 		$this->load->view('login');
 	}
 
@@ -10,9 +9,12 @@ class Blog extends CI_Controller{
 		$password = $this->input->post('password');
 		$confirm = $this->input->post('confirm');
 		if($password == $confirm){
-			echo '正しく登録できました！<br>';
+			$data = array(
+							'email' => $email, 
+							'password' => $password
+						);
+			$this->load->view('success', $data);
 		}else{
-			echo 'パスワードを確認してください！<br>';
 		}
 	}
 
