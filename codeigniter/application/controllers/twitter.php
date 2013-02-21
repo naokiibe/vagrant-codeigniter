@@ -4,7 +4,8 @@ class Twitter extends CI_Controller
 	public function index() 
 	{
 		$this->load->helper('form');
-		$this->load->view('login');
+		$title = array('title' => 'ログイン画面');
+		$this->load->view('login', $title);
 	}
 
 	public function register()
@@ -42,9 +43,10 @@ class Twitter extends CI_Controller
 		$this->user->setPassword($password);
 		$success = $this->user->login();
 		if ($success) {
-			echo 'ログイン成功';
+			$this->load->view('home');
 		} else {
-			echo 'ログイン失敗';
+			$title = array('title' => 'ログイン失敗');
+		$this->load->view('login', $title);
 		}
 	}
 }

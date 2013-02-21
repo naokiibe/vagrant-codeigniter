@@ -7,7 +7,7 @@
 </head>
 <body>
 	<div class="contents">
-		<div class="title"><h1>ログイン画面</h1></div>
+		<div class="title"><h1><?php echo $title;?></h1></div>
 		<?php 
 		$this->load->helper('form');
 		$attributes = array('class' => 'login');

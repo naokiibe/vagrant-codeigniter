@@ -17,7 +17,6 @@
 		echo anchor('twitter/index', 'ログイン画面へ');
 		?>
 
-		
 	</div>
 </body>
 </html>
