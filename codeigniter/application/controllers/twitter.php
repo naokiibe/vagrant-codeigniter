@@ -19,7 +19,7 @@ class Twitter extends CI_Controller
 		$password = $this->input->post('password');
 		$confirm = $this->input->post('confirm');
 		if ($password == $confirm) {
-			$this->load->model('userdata', 'user', TRUE);
+			$this->load->model('userdata', 'user', true);
 			$this->user->setEmail($email);
 			$this->user->setPassword($password);
 			$register = $this->user->register();
@@ -38,7 +38,7 @@ class Twitter extends CI_Controller
 	{
 		$email = $this->input->post('email');
 		$password = $this->input->post('password');
-		$this->load->model('userdata', 'user', TRUE);
+		$this->load->model('userdata', 'user', true);
 		$this->user->setEmail($email);
 		$this->user->setPassword($password);
 		$success = $this->user->login();

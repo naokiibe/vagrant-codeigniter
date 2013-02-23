@@ -16,7 +16,8 @@ class Userdata extends CI_Model
 		$this->password = $str;
 	}
 
-	public function register(){
+	public function register()
+	{
 		if ($this->email != null && $this->password != null) {
 			$user = array(
 				'email' => $this->email,
@@ -25,20 +26,20 @@ class Userdata extends CI_Model
 			$query = $this->db->insert('users', $user);
 			return $query;
 		}
-		return FALSE;
+		return false;
 	}
 
-	public function login(){
+	public function login()
+	{
 		if ($this->email != null && $this->password != null) {
 			$query = $this->db->get_where('users', array('email' => $this->email));
-			foreach ($query->result() as $row)
-			{
+			foreach ($query->result() as $row) {
 				if($row->password == $this->password){
-					return TRUE;
+					return true;
 				}
 			}
 		}
-		return FALSE;
+		return false;
 	}
 }
 ?>
