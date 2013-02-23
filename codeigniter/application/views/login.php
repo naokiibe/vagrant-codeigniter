@@ -13,10 +13,34 @@
 		$attributes = array('class' => 'login');
 		echo form_open('twitter/login', $attributes);
 		?>
-			<div class="email">E-mail: <?php echo form_input('email', '');?></div>		
-			<div class="password">Password: <?php echo form_password('password', '');?></div>
-			<div class="submit"><?php echo form_submit('submit', 'Ok');?></div>
-			<div class="cancel"><?php echo form_button('cancel', 'Cancel');?></div>
+		<div class="email">
+			<h5>E-mail:</h5>
+			<?php
+			$email = array(
+				'name'        => 'email',
+				'id'          => 'email',
+				'value'       => set_value('email'),
+				);
+			echo form_input($email);
+			?>
+		</div>
+		<div class="password">
+			<h5>Password(4~10文字):</h5>
+			<?php
+			$password = array(
+				'name'        => 'password',
+				'id'          => 'password',
+				'value'       => '',
+				);
+			echo form_password($password);
+			?>
+		</div>
+		<div class="submit">
+			<?php
+			echo form_submit('submit', 'Ok');
+			?>
+		</div>
+		<div class="cancel"><?php echo form_button('cancel', 'Cancel');?></div>
 		<?php echo form_close();?>
 
 		<div class="register">

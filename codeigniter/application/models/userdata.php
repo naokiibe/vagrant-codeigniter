@@ -33,9 +33,11 @@ class Userdata extends CI_Model
 	{
 		if ($this->email != null && $this->password != null) {
 			$query = $this->db->get_where('users', array('email' => $this->email));
-			foreach ($query->result() as $row) {
-				if($row->password == $this->password){
-					return true;
+			if ($query->num_rows() > 0) {
+				foreach ($query->result() as $row) {
+					if($row->password == $this->password){
+						return true;
+					}
 				}
 			}
 		}
